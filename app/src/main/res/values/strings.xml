@@ -1,0 +1,20 @@
+
+<resources>
+    <string name="app_name">Op_Research</string>
+    <string name="home_general">General</string>
+    <string name="home_tsp">TSP</string>
+    <string name="general_x">변수의 개수?</string>
+    <string name="tsp_sign">x</string>
+    <string name="input_x">위 칸에 입력하시오</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+    <string name="condition">조건</string>
+    <string name="condition_bin">Binary</string>
+    <string name="condition_int">Integer</string>
+    <string name="goal">최대/최소 선택</string>
+    <string-array name="goal_array">
+        <item>MAX</item>
+        <item>MIN</item>
+    </string-array>
+
+</resources>

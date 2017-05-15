@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mobile.andorid.yjin.op_research_ver2.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="266dp"
+        android:src="@drawable/home_logo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Operation Research"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:textColor="#1E3269"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ninth Edition"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:textColor="#1E3269"
+        android:layout_marginRight="30dp"
+        android:gravity="right" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp">
+
+        <Button
+            android:id="@+id/general_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:text="@string/home_general"/>
+
+        <Button
+            android:id="@+id/tsp_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_tsp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
