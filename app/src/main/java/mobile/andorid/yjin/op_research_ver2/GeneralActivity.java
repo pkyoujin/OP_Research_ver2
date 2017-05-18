@@ -69,6 +69,7 @@ public class GeneralActivity extends AppCompatActivity {
         return null;
     }
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.general_main);

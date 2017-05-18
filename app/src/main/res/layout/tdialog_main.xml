@@ -12,7 +12,7 @@
             android:id="@+id/tsp_getx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/input_x"
+            android:hint="@string/input_x"
             android:inputType="number"
             android:padding="5dp"/>
 
