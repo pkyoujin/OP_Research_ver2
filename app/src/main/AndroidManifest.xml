@@ -16,21 +16,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GeneralActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".TSPActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".GeneralActivity"> </activity>
+        <activity android:name=".TSPActivity"> </activity>
 
     </application>
 

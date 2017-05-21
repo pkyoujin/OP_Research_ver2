@@ -7,10 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -55,7 +51,7 @@ public class GeneralActivity extends AppCompatActivity {
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DIALOG_LIST_MESSAGE:
-                final CharSequence[] items = {"General","BnB","Tabu","Genetic","Simulated Annealing","1"};
+                final CharSequence[] items = {"Branch and Bound","Cutting Plane","Continuous Heuristic","Tabu Search","Simulated Annealing","Genetic"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("풀이 방법을 선택하시오");
