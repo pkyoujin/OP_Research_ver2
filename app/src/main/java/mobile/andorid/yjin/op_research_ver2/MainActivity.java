@@ -2,7 +2,6 @@ package mobile.andorid.yjin.op_research_ver2;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.g_confirm:
                 Intent g_intent = new Intent(getApplicationContext(), GeneralActivity.class);
+                g_intent.putExtra("NUM_OF_VAR", 5);
+                g_intent.putExtra("NUM_OF_ROW", 7);
                 startActivity(g_intent);
                 break;
             case R.id.g_cancel:
