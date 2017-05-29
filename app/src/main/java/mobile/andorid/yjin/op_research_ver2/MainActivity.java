@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
  //   GeneralDialog gDialog;
 
     private static final int DIALOG_GENERAL = 1;
-//
+
 //    EditText gv = (EditText) findViewById(R.id.general_variable);
-//    int gvnum = Integer.parseInt(gv.getText().toString());
+////    int gvnum = Integer.parseInt(gv.getText().toString());
 //
 //    EditText gc = (EditText) findViewById(R.id.general_constraint);
 //    int gcnum = Integer.parseInt(gc.getText().toString());
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             mBuilder.setTitle("General Problem");
             mBuilder.setMessage("변수의 값을 입력하시오");
             return mBuilder.create();
+
         }
         @Override
         public void onStop() {
@@ -79,10 +80,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ONCLICK_DIALOG1(View v) {
+
+
         switch (v.getId()) {
             case R.id.g_confirm:
                 Intent g_intent = new Intent(getApplicationContext(), GeneralActivity.class);
-                g_intent.putExtra("NUM_OF_VAR", 2);
+
+//                int gvnum = Integer.parseInt(gv.getText().toString());
+                g_intent.putExtra("NUM_OF_VAR", 3);
                 g_intent.putExtra("NUM_OF_ROW", 6);
                 startActivity(g_intent);
                 break;

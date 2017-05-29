@@ -96,19 +96,17 @@ public class GeneralActivity extends AppCompatActivity {
 
         for (int x = 0; x < rows; x++) {
 
-            for (int y = 0; y < vars; y++) {
-
                 TableRow row = new TableRow(this);
                 TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
                 row.setLayoutParams(lp);
-                checkBox = new CheckBox(this);
-                et = new EditText(this);
-                checkBox.setText("hello");
-                et.setHint("상수");
-                row.addView(checkBox);
-                row.addView(et);
+                for (int y = 0; y <vars; y++) {
+
+                    et = new EditText(this);
+                    et.setHint("상수");
+                    row.addView(et);
+                }
+
                 tl.addView(row, x);
-            }
         }
     }
 
