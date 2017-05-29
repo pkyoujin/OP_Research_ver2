@@ -18,11 +18,19 @@ public class MainActivity extends AppCompatActivity {
  //   GeneralDialog gDialog;
 
     private static final int DIALOG_GENERAL = 1;
+//
+//    EditText gv = (EditText) findViewById(R.id.general_variable);
+//    int gvnum = Integer.parseInt(gv.getText().toString());
+//
+//    EditText gc = (EditText) findViewById(R.id.general_constraint);
+//    int gcnum = Integer.parseInt(gc.getText().toString());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Button start = (Button) findViewById(R.id.general_layout);
         start.setOnClickListener(new View.OnClickListener() {
@@ -74,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.g_confirm:
                 Intent g_intent = new Intent(getApplicationContext(), GeneralActivity.class);
-                g_intent.putExtra("NUM_OF_VAR", 5);
-                g_intent.putExtra("NUM_OF_ROW", 7);
+                g_intent.putExtra("NUM_OF_VAR", 2);
+                g_intent.putExtra("NUM_OF_ROW", 6);
                 startActivity(g_intent);
                 break;
             case R.id.g_cancel:

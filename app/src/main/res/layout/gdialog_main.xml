@@ -2,19 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <EditText
-            android:id="@+id/general_getx"
-            android:layout_width="match_parent"
+            android:id="@+id/general_variable"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_x"
+            android:hint="@string/input_v"
+            android:inputType="number"
+            android:padding="10dp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/general_constraint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_c"
             android:inputType="number"
             android:padding="10dp"
             android:gravity="center"/>
@@ -25,13 +34,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:gravity="center">
 
         <Button
             android:id="@+id/g_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ONCLICK_DIALOG1"
+            android:layout_margin="10dp"
             android:text="@string/ok" />
 
         <Button
@@ -39,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="ONCLICK_DIALOG1"
+            android:layout_margin="10dp"
             android:text="@string/cancel" />
 
     </LinearLayout>
