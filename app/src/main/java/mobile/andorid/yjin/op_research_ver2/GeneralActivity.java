@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
@@ -24,65 +26,46 @@ public class GeneralActivity extends AppCompatActivity {
 
     final static int DIALOG_LIST_MESSAGE = 1;
 
-    int myNum = 0;
-
-//
-//        final EditText et = (EditText) findViewById(R.id.general_getx);
-//        final TableLayout tableLayout = (TableLayout) findViewById(R.id.table); // 테이블 id 명
-//
-//        try {
-//            myNum = Integer.parseInt(et.getText().toString());
-//
-//            for (int i = 0; i < myNum; i++) { // Creation row
-//                final TableRow tableRow = new TableRow(this);
-//                tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
-//
-//                for(int j = 0 ; j < myNum ; j++){
-//                    final TextView text = new TextView(this);
-//
-//                    text.setText( i + j + "|");
-//                    text.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
-//                    tableRow.addView(text);
-//                }
-//
-//                tableLayout.addView(tableRow);
-//            }
-//
-//        } catch(NumberFormatException nfe) {
-//            System.out.println("Could not parse " + nfe);
-//        }
-//
-//    }
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DIALOG_LIST_MESSAGE:
-                final CharSequence[] items = {"Branch and Bound","Cutting Plane","Continuous Heuristic","Tabu Search","Simulated Annealing","Genetic"};
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("풀이 방법을 선택하시오");
-                builder.setItems(items, new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int item) {
-                        Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show(); } }
-                );
-                AlertDialog alert = builder.create();
-                return alert;
-        }
-        return null;
-    }
-
+    private int selectedID = -1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.general_main);
+
+        RadioGroup rg = (RadioGroup) findViewById(R.id.general_radiogroup);
+
         Button b = (Button) findViewById(R.id.gmethod);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                switch (selectedID) {
+                    case R.id.general_tobinary:
+                        break;
+                    case R.id.general_tointeger:
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "조건을 선택하시오", Toast.LENGTH_SHORT).show();
+                }
+
                 showDialog(DIALOG_LIST_MESSAGE);
             }
         });
+
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                selectedID = checkedId;
+            }
+        });
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinner_goal);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,R.array.goal_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
 
         Intent i = getIntent();
         int vars = i.getIntExtra("NUM_OF_VAR", 3);
@@ -90,8 +73,6 @@ public class GeneralActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "vars=" + vars + ", rows=" + rows, Toast.LENGTH_SHORT).show();
 
         TableLayout tl = (TableLayout) findViewById(table);
-
-        CheckBox checkBox;
         EditText et;
 
         for (int x = 0; x < rows; x++) {
@@ -99,6 +80,7 @@ public class GeneralActivity extends AppCompatActivity {
                 TableRow row = new TableRow(this);
                 TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
                 row.setLayoutParams(lp);
+
                 for (int y = 0; y <vars; y++) {
 
                     et = new EditText(this);
@@ -108,6 +90,56 @@ public class GeneralActivity extends AppCompatActivity {
 
                 tl.addView(row, x);
         }
+
+
     }
 
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DIALOG_LIST_MESSAGE:
+                final CharSequence[] items = {"Branch and Bound","Cutting Plane","Continuous Heuristic","Tabu Search","Simulated Annealing","Genetic"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("풀이 방법을 선택하시오");
+//                builder.setItems(items, new DialogInterface.OnClickListener(){
+//                    public void onClick(DialogInterface dialog, int item) {
+//                        Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+//
+//
+//                }
+
+                builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                     public void onClick(DialogInterface dialog, int item) {
+
+                         Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+
+                         switch (item) {
+                             case 0:
+                                 break;
+                             case 1:
+                                 break;
+                             case 2:
+                                 break;
+                             case 3:
+                                 break;
+                             case 4:
+                                 break;
+                             case 5:
+                                 break;
+                             default:
+                                 Toast.makeText(getApplicationContext(), "풀이방법을 선택하시오", Toast.LENGTH_SHORT).show();
+                         }
+                     }
+                });
+
+
+//            }
+//
+//                );
+                AlertDialog alert = builder.create();
+                return alert;
+        }
+        return null;
+    }
 }

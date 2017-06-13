@@ -2,32 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <LinearLayout
+
+<LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <EditText
-            android:id="@+id/tsp_getx"
+            android:id="@+id/tsp_variable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_x"
+            android:hint="@string/input_v"
             android:inputType="number"
-            android:padding="5dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tsp_sign"/>
+            android:padding="10dp"
+            android:gravity="center"/>
 
         <EditText
-            android:id="@+id/tsp_gety"
+            android:id="@+id/tsp_constraint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_x"
+            android:hint="@string/input_c"
             android:inputType="number"
-            android:padding="5dp"
+            android:padding="10dp"
             android:gravity="center"/>
 
 

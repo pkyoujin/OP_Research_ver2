@@ -2,12 +2,18 @@ package mobile.andorid.yjin.op_research_ver2;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
+
+import static mobile.andorid.yjin.op_research_ver2.R.id.table;
 
 /**
  * Created by You Jin on 2017-05-14.
@@ -45,6 +51,30 @@ public class TSPActivity extends AppCompatActivity {
                 showDialog(DIALOG_LIST_MESSAGE);
             }
         });
+
+        Intent i = getIntent();
+        int vars = i.getIntExtra("TNUM_OF_VAR", 3);
+        int rows = i.getIntExtra("TNUM_OF_ROW", 4);
+        Toast.makeText(getApplicationContext(), "vars=" + vars + ", rows=" + rows, Toast.LENGTH_SHORT).show();
+
+        TableLayout tl = (TableLayout) findViewById(table);
+        EditText et;
+
+        for (int x = 0; x < rows; x++) {
+
+            TableRow row = new TableRow(this);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            row.setLayoutParams(lp);
+
+            for (int y = 0; y <vars; y++) {
+
+                et = new EditText(this);
+                et.setHint("상수");
+                row.addView(et);
+            }
+
+            tl.addView(row, x);
+        }
 
     }
 }
