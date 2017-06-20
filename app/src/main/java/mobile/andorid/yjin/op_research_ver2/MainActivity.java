@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public class MainDialog1 extends Dialog {
+    public class MainDialog1 extends Dialog { //d
 
         public MainDialog1(Activity a) {
             super(a);
