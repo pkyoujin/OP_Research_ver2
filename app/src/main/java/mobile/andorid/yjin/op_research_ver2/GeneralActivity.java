@@ -83,7 +83,6 @@ public class GeneralActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "vars=" + vars + ", rows=" + rows, Toast.LENGTH_SHORT).show();
 
         TableLayout t1 = (TableLayout) findViewById(table);
-//        TableLayout t2 = (TableLayout) findViewById(sign_table);
         EditText et;
 
         for (x = 0; x < rows; x++) {
@@ -183,9 +182,8 @@ public class GeneralActivity extends AppCompatActivity {
                         else if (spinner.getSelectedItem().equals("MIN"))
                             strUriParams += "Minimize";
 
-//                        for()
-
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wolframalpha.com/widget/widgetPopup.jsp?p=v&id=1e692c6f72587b2cbd3e7be018fd8960&title=Linear%20Programming%20Calculator&theme=blue"));
+//                        URL url = new URL("http://www.wolframalpha.com/widget/widgetPopup.jsp?p=v&id=1e692c6f72587b2cbd3e7be018fd8960&title=Linear%20Programming%20Calculator&theme=blue" + "?" + strUriParams);
+//                        URLConnection conn = url.openConnection();
 
 //                        for(int i= 0; i <= v; i++){
 //                           arr = new EditText[v];
@@ -195,6 +193,12 @@ public class GeneralActivity extends AppCompatActivity {
 //                                String param = "value = " + URLEncoder.encode(arr[i]+"x"+i)
 //                            }
 //                        }
+
+
+
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wolframalpha.com/widget/widgetPopup.jsp?p=v&id=1e692c6f72587b2cbd3e7be018fd8960&title=Linear%20Programming%20Calculator&theme=blue"));
+
+
                         startActivity(intent);
                     }
                 });

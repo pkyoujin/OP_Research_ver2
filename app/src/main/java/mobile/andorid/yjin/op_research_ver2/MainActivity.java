@@ -15,8 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import static mobile.andorid.yjin.op_research_ver2.R.id.g_confirm;
-
-//import static mobile.andorid.yjin.op_research_ver2.R.id.g_confirm;
+import static mobile.andorid.yjin.op_research_ver2.R.id.t_confirm;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,33 +33,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        gv = (EditText) findViewById(R.id.general_variable);
-//        gc = (EditText) findViewById(R.id.general_constraint);
-
-        tv = (EditText) findViewById(R.id.tsp_variable);
-        tc = (EditText) findViewById(R.id.tsp_constraint);
-
-
         Button togeneral = (Button) findViewById(R.id.general_layout);
         togeneral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View target) {
-
                 gDialog = new MainDialog1(MainActivity.this);
-//                gDialog.show(getFragmentManager(),"General");
                 gDialog.show();
             }
         });
 
-        Button totsp = (Button) findViewById(R.id.tsp_layout);
-        totsp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View target) {
-                tDialog = new MainDialog2();
-                tDialog.show(getFragmentManager(), "TSP");
-
-            }
-        });}
+//        Button totsp = (Button) findViewById(R.id.tsp_layout);
+//        totsp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View target) {
+//                tDialog = new MainDialog2(MainActivity.this);
+//                tDialog.show();
+//
+//            }
+//        });
+ }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,12 +60,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public class MainDialog1 extends Dialog { //d
-
+    public class MainDialog1 extends Dialog {
         public MainDialog1(Activity a) {
             super(a);
         }
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -116,33 +105,54 @@ public class MainActivity extends AppCompatActivity {
             btnCancel.setOnClickListener(btnClick);
         }
 
-//        @Override
-//        protected void onCreate(Bundle savedInstanceState) {
-//            AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
-//            LayoutInflater mLayoutInflater = getActivity().getLayoutInflater();
-//            mBuilder.setView(mLayoutInflater.inflate(R.layout.gdialog_main, null));
-//            mBuilder.setTitle("General Problem");
-//            mBuilder.setMessage("변수의 값을 입력하시오");
+//        public class MainDialog2 extends Dialog {
+//
+//            public MainDialog2(Activity a) {
+//                super(a);
+//            }
+//
+//            @Override
+//            protected void onCreate(Bundle savedInstanceState) {
+//                super.onCreate(savedInstanceState);
+//                setContentView(R.layout.gdialog_main);
 //
 //
+//                tv = (EditText) findViewById(R.id.tsp_variable);
+//                tc = (EditText) findViewById(R.id.tsp_constraint);
 //
-//            return mBuilder.create();
-//        }
-
-//        @Override
-//        public Dialog onCreateDialog(Bundle savedInstanceState) {
-//            AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
-//            LayoutInflater mLayoutInflater = getActivity().getLayoutInflater();
-//            mBuilder.setView(mLayoutInflater.inflate(R.layout.gdialog_main, null));
-//            mBuilder.setTitle("General Problem");
-//            mBuilder.setMessage("변수의 값을 입력하시오");
+//                Button btnConfirm2 = (Button) findViewById(t_confirm);
+//                Button btnCancel2 = (Button) findViewById(R.id.t_cancel);
 //
-//            gv = (EditText) findViewById(R.id.general_variable);
-//            gc = (EditText) findViewById(R.id.general_constraint);
+//                View.OnClickListener btnClick = new View.OnClickListener() {
 //
-//            return mBuilder.create();
+//                    @Override
+//                    public void onClick(View v) {
+//                        switch (v.getId()) {
+//                            case t_confirm:
+//                                Intent g_intent = new Intent(getApplicationContext(), GeneralActivity.class);
 //
-//        }
+//                                Log.v("MainActivity", "tv = " + tv.getText());
+//                                tv_num = Integer.parseInt("" + tv.getText());
+//                                tc_num = Integer.parseInt("" + tc.getText());
+//
+//                                Log.v("MainActivity", "tv=" + tv_num + ", tc=" + tc_num);
+//
+//                                g_intent.putExtra("NUM_OF_VAR2", tv_num);
+//                                g_intent.putExtra("NUM_OF_ROW2", tc_num);
+//
+//                                startActivity(t_intent);
+//                                tDialog.dismiss();
+//                                break;
+//                            case R.id.g_cancel:
+//                                gDialog.dismiss();
+//                                break;
+//                        }
+//                    }
+//                };
+//
+//                btnConfirm2.setOnClickListener(btnClick);
+//                btnCancel2.setOnClickListener(btnClick);
+//            }
 
         @Override
         public void onStop() {
@@ -150,31 +160,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-//    public void ONCLICK_DIALOG1(View v) {
-//
-//
-//        switch (v.getId()) {
-//            case g_confirm:
-//                Intent g_intent = new Intent(getApplicationContext(), GeneralActivity.class);
-//
-//                Log.v("MainActivity", "gv = " + gv.getText());
-//                gv_num = Integer.parseInt("" + gv.getText());
-//                gc_num = Integer.parseInt("" + gc.getText());
-//
-//                Log.v("MainActivity", "gv=" + gv_num + ", gc=" + gc_num);
-//
-//                g_intent.putExtra("NUM_OF_VAR", gv_num);
-//                g_intent.putExtra("NUM_OF_ROW", gc_num);
-//
-//                startActivity(g_intent);
-//                gDialog.dismiss();
-//                break;
-//            case R.id.g_cancel:
-//                gDialog.dismiss();
-//                break;
-//        }
-//    }
 
     public static class MainDialog2 extends DialogFragment {
 
@@ -195,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ONCLICK_DIALOG2(View v) {
         switch (v.getId()) {
-            case R.id.t_confirm:
+            case t_confirm:
                 Intent t_intent = new Intent(getApplicationContext(), TSPActivity.class);
 
 //                tv_num = Integer.parseInt(gv.getText().toString());
