@@ -21,8 +21,7 @@
     </string-array>
 
     <string-array name="cons_array">
-        <item>＜</item>
-        <item>＞</item>
+        <item>=</item>
         <item>≤</item>
         <item>≥</item>
     </string-array>

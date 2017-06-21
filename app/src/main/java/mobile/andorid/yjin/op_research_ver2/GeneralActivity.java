@@ -3,6 +3,7 @@ package mobile.andorid.yjin.op_research_ver2;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import java.net.URLEncoder;
+
 import static mobile.andorid.yjin.op_research_ver2.R.id.sign_table;
 import static mobile.andorid.yjin.op_research_ver2.R.id.table;
 
@@ -29,6 +32,8 @@ public class GeneralActivity extends AppCompatActivity {
     final static int DIALOG_LIST_MESSAGE = 1;
 
     private int selectedID = -1;
+
+    int x, y, v=0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,16 +79,18 @@ public class GeneralActivity extends AppCompatActivity {
         TableLayout t2 = (TableLayout) findViewById(sign_table);
         EditText et;
 
-        for (int x = 0; x < rows; x++) {
+        for (x = 0; x < rows; x++) {
 
             TableRow row = new TableRow(this);
             TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
             row.setLayoutParams(lp);
 
-            for (int y = 0; y < vars; y++) {
+            for (y = 0; y < vars; y++) {
                 et = new EditText(this);
                 et.setHint("상수");
+                et.setId(v);
                 row.addView(et);
+                v++;
             }
             tl.addView(row, x);
         }
@@ -140,7 +147,14 @@ public class GeneralActivity extends AppCompatActivity {
                 builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.wolframalpha.com/widget/widgetPopup.jsp?p=v&id=1e692c6f72587b2cbd3e7be018fd8960&title=Linear%20Programming%20Calculator&theme=blue"));
 
+                        try{
+                            int getv = (int)findViewById(R.id.v)
+                            String param = "value = " + URLEncoder.encode()
+                        }
+
+                        startActivity(intent);
                     }
                 });
 
