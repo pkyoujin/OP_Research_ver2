@@ -54,17 +54,37 @@
     </LinearLayout>
 
 
-    <TableLayout
-        android:id="@+id/table"
+    <LinearLayout
+        android:id="@+id/sign"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    </TableLayout>
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/sign_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/constraint_range"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:prompt="@array/goal_array" />
+
+        </TableLayout>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/gmethod"
         android:text="Solve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 
 </LinearLayout>
