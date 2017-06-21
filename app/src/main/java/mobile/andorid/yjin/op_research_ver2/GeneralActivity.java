@@ -180,7 +180,7 @@ public class GeneralActivity extends AppCompatActivity {
                         if (spinner.getSelectedItem().equals("MAX"))
                             strUriParams += "Maximize";
                         else if (spinner.getSelectedItem().equals("MIN"))
-                            strUriParams += "Minimize";
+                            strUriParams += "Minimize"; //
 
 //                        URL url = new URL("http://www.wolframalpha.com/widget/widgetPopup.jsp?p=v&id=1e692c6f72587b2cbd3e7be018fd8960&title=Linear%20Programming%20Calculator&theme=blue" + "?" + strUriParams);
 //                        URLConnection conn = url.openConnection();
