@@ -135,7 +135,7 @@ public class GeneralActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "풀이방법을 선택하시오", Toast.LENGTH_SHORT).show();
                         }
                     }
-                }); //d
+                });
 
                 builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
